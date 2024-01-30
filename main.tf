@@ -91,7 +91,7 @@ resource "aws_s3_bucket" "six" {
 bucket = "harshaprojectbucket"
 }
 
-resource "aws_iam_user" seven" {
+resource "aws_iam_user" "seven" {
 for_each = var.user_names
 name = each.value
 }
