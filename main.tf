@@ -6,7 +6,7 @@ resource "aws_instance" "one" {
 ami = "ami-0a3c3a20c09d6f377"
 instance_type = "t2.micro"
 key_name = "terraform project"
-vpc_security-group_ids = [aws_security_group.five.id]
+vpc_security_group_ids = [aws_security_group.five.id]
 availability_zone = "us-east-1a"
 user_data = <<EOF
 #!/bin/bash
@@ -63,7 +63,7 @@ Name = "app-server-2"
 }
 
 resource "aws_security_group" "five" {
-name = 'elb-sg"
+name = "elb-sg"
 
 ingress {
   from_port = 22
@@ -95,12 +95,12 @@ resource "aws_iam_user" seven" {
 for_each = var.user_names
 name = each.value
 }
-variable "user_name" {
+variable "user_names" {
 type = string
-default = ["user1",user2","user3","user4"]
+default = ["user1", user2", "user3", "user4"]
 }
 
-resource "aws_ebs_volume" {
+resource "aws_ebs_volume" "eight" {
 availability_zone = "us-east-1a"
 size = 40
 tags = {
